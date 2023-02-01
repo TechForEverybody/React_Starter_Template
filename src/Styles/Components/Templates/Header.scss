@@ -4,11 +4,24 @@ header {
 	justify-content: space-evenly;
 	padding: 5px;
 	flex-wrap: wrap;
-	background-color: #130f40;
+	background-color: #041322;
+	.header h1{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+	}
 	.header h1 a {
-		font-size: 1.7em;
+		font-family:  Prompt;
+		font-size: 1.5em;
+		img{
+			width: 35px;
+		}
 		@media screen and (max-width: 768px) {
-			font-size: 0.9em;
+			font-size: 0.7em;
+			img{
+				width: 30px;
+			}
 		}
 	}
 
@@ -20,33 +33,30 @@ header {
 		}
 	}
 	button {
-		color: royalblue;
-		background: coral;
-		border-radius: 5px;
+		background: #3b7a57;
+		// border-radius: ;
 		padding: 5px 20px;
 	}
+	button:hover{
+		background: green;
+	}
 	.user {
-		background-color: aqua;
+		background-color: green;
 		padding: 5px 10px;
-		border-radius: 5px;
-		position: relative;
 		cursor: pointer;
-		.name {
-			color: #130f40;
-		}
+		z-index: 10;
 		.options {
 			width: 100%;
 			position: absolute;
 			margin-left: -10px;
-			background: aqua;
+			background: green;
 			border-radius: 10px;
 			a {
-                display: block;
-				padding: 5px 10px;
-				color: #4834d4;
+                display: flex;
+				padding: 5px ;
 			}
 			a:hover {
-				background-color: aquamarine;
+				background-color: aqua;
 			}
 		}
 	}
@@ -70,7 +80,7 @@ header {
             text-align: center;
 		}
         a:hover{
-            background: coral;
+            background: blue;
         }
         svg{
             fill: black;

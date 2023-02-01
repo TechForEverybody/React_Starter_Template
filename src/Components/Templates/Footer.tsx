@@ -7,8 +7,8 @@ function Footer() {
             <footer>
                 <div className="footerOptions">
                     <div className="smallIntro">
-                        <h1>Project Name</h1>
-                        <p>Web site created for use of Project Name in day to day life.
+                        <h1>Site_Name</h1>
+                        <p>Site Description.
                         </p>
                         <div className="links">
                             <a href="https://github.com/TechForEverybody"><GitHubIcon /></a>
@@ -22,17 +22,17 @@ function Footer() {
                     <div className="option contactDetails">
                         <h4>Contact Us</h4>
                         <h5>Get in touch with us!</h5>
-                        <li><a href="mailto:info.kisaan@gmail.com">Email: <span>info.email@gmail.com</span></a></li>
+                        <li><a href="mailto:farmerfriend2023@gmail.com">Email: <span>xxxxxxxxx@gmail.com</span></a></li>
                         <li><a href="tel:+91xxxxxxxxxx">Phone: <span>+91xxxxxxxxxx</span></a></li>
                     </div>
                 </div>
                 <div className="bottomTermsLink">
-                    <NavLink to="/terms">Terms and Conditions</NavLink>
-                    <NavLink to="/datapolicy">Data Policies</NavLink>
+                    <NavLink to="/policy#terms">Terms and Conditions</NavLink>
+                    <NavLink to="/policy">Data Policies</NavLink>
                 </div>
                 <hr />
                 <div className="footerBottom">
-                    <h3>Smart Farming || All Rights are Reserved</h3>
+                    <h3>Site_Name || All Rights are Reserved</h3>
                 </div>
             </footer>
         </>

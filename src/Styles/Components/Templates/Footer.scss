@@ -1,10 +1,11 @@
 footer{
-    background: #130f40;
+    background: #041322;
     padding: 10px;
 
     .footerOptions{
         display: flex;
         justify-content: space-evenly;
+        // align-items: center;
         margin: 0px 10px 30px 10px;
         flex-wrap: wrap;
         .smallIntro{

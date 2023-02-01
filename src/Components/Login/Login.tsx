@@ -7,8 +7,12 @@ import SignIn from './SignIn';
 import Register from './Register';
 import ForgotPassword from './ForgotPassword';
 import Footer from '../Templates/Footer';
+import { LoginContext } from '../../Contexts/UserContext';
+
+
+
 function Login() {
-    let { login } = useContext(userContext)
+    let { login } = useContext(userContext) as LoginContext;
     let navigate = useNavigate()
     useEffect(() => {
         if (login.user) {
@@ -16,7 +20,7 @@ function Login() {
         }
     })
     let [toggleLoginPage, updateToggleLoginPage] = useState(0)
-    function updateLoginType(pageNo) {
+    function updateLoginType(pageNo:number) {
         updateToggleLoginPage(pageNo)
     }
     return (

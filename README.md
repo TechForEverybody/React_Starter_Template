@@ -1,4 +1,4 @@
-<h1>Project Title</h1>
+<h1>React Typescript Project Template</h1>
 <p>Web site created for ________________________________________</p>
 <h3>Created By: Shivkumar Chauhan</h3>
 <br/>

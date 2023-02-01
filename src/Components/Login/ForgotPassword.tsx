@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { ChangeEvent, FormEvent } from 'react'
 import { motion } from "framer-motion"
 import { useState } from 'react'
 
-function ForgotPassword(object) {
+type objectType={
+    changeLoginType:(pageNo:number)=>void
+}
+
+
+function ForgotPassword(object:objectType) {
     let [otpTime,updateOTPTime]=useState(false)
     let [temporaryText,updateTemporaryText]=useState("")
-    function submitTheForm(event) {
+    function submitTheForm(event:FormEvent) {
         event.preventDefault()
         updateTemporaryText("OTP is sent on Registered Email")
         updateOTPTime(true)
@@ -14,7 +19,7 @@ function ForgotPassword(object) {
         "email":"",
         "otp":""
     })
-    function updateDetails(event) {
+    function updateDetails(event:ChangeEvent<HTMLInputElement>) {
         updateLoginDetails((preValue)=>{
             return({
                 ...preValue,

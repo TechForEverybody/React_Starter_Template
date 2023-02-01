@@ -1,8 +1,13 @@
 #homePageContainer {
 	min-height: 100vh;
 	.landingPageImage {
-		position: relative;
-		min-height: 80vh;
-		background-size: cover;
+		min-height: 90vh;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 10px;
+		@media screen and (max-width: 768px) {
+			display: flex;
+		}
 	}
 }

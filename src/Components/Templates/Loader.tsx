@@ -1,0 +1,24 @@
+import React from 'react'
+import { ColorRing } from 'react-loader-spinner'
+
+type objectType={
+    isPageCentered:boolean
+}
+
+function Loader(object:objectType) {
+    return (
+        <div className={`LoaderContainer  ${object.isPageCentered?"centeredLoader":""}`}>
+            <ColorRing
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            />
+        </div>
+    )
+}
+
+export default Loader

@@ -1,23 +1,40 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent, useContext, useState } from 'react'
 import { motion } from "framer-motion"
+import { LoginContext } from '../../Contexts/UserContext';
+import { userContext } from '../../App';
+import { useNavigate } from 'react-router-dom';
 
-function Register(object) {
-    function submitTheForm(event) {
-        event.preventDefault()
-    }
+
+type objectType={
+    changeLoginType:(pageNo:number)=>void
+}
+
+
+function Register(object:objectType) {
+    let {updateLoginState } = useContext(userContext) as LoginContext
+    let navigate = useNavigate()
     let [loginDetails,updateLoginDetails]=useState({
         "name":"",
         "email":"",
         "phone":"",
         "password":""
     })
-    function updateDetails(event) {
+    function updateDetails(event:ChangeEvent<HTMLInputElement>) {
         updateLoginDetails((preValue)=>{
             return({
                 ...preValue,
                 [event.target.name]:event.target.value
             })
         })
+    }
+    function submitTheForm(event:FormEvent) {
+        event.preventDefault()
+        if (loginDetails.email==="abc@email.com" && loginDetails.password==="12345678") {
+            updateLoginState({type:"LOGIN",user:true,username:"Farmer"})
+            navigate("/dashboard")
+        } else {
+            window.alert("Invalid Credentials")
+        }
     }
     return (<>
         <motion.div initial={{ y: "-100vh" }} animate={{ y: "0"}} exit={{ y: "0" }}>

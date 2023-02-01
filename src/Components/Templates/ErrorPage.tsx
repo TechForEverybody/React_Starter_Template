@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import ErrorPage404  from './ImageImports'
+import { ErrorPage404 } from '../../Imports/Images/ImageImports'
 function ErrorPage() {
     return (
         <div className="ErrorPage">
