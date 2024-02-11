@@ -1,32 +1,31 @@
+import React from 'react';
 import './App.css';
-import './Styles/index.scss';
-import { Routes, Route, Navigate } from "react-router-dom";
-import Home from './Components/Home/Home';
-import ErrorPage from './Components/Templates/ErrorPage';
-import { createContext, useReducer } from 'react';
-import { userInitialState, updateUser, LoginContext } from './Contexts/UserContext';
-import Logout from './Components/Templates/Logout';
-import Login from './Components/Login/Login';
-let userContext = createContext<LoginContext | null>(null)
+import './styles/index.scss';
+import SettingContextProvider from './context/SettingsContext';
+import UserContextProvider from './context/UserContext';
+import Router from './routes';
+import { HelmetProvider } from 'react-helmet-async';
+import { StyledEngineProvider } from "@mui/material/styles";
+import ConfiguredThemeProvider from "./theme/ThemeProvider";
+import PreviewProvider from './context/PreviewContext';
+
 function App() {
-    let [login, updateLoginState] = useReducer(updateUser, userInitialState);
     return (
-            <userContext.Provider value={{ login, updateLoginState }}>
-                <Routes>
-                    <Route path="/" element={<Home />}/>
 
-
-
-                    <Route path="/login" element={!login.user?<Login />:<Navigate to="/"/>}/>
-
-
-
-                    <Route path="/logout" element={login.user?<Logout />:<Navigate to="/login"/>}/>
-
-                    <Route path="*" element={<ErrorPage />}/>
-                </Routes>
-            </userContext.Provider>
+        <HelmetProvider>
+            <SettingContextProvider>
+                <UserContextProvider>
+                    <ConfiguredThemeProvider>
+                        <StyledEngineProvider injectFirst>
+                            <PreviewProvider>
+                                <Router />
+                            </PreviewProvider>
+                        </StyledEngineProvider>
+                    </ConfiguredThemeProvider>
+                </UserContextProvider>
+            </SettingContextProvider>
+        </HelmetProvider>
     );
 }
+
 export default App;
-export { userContext }

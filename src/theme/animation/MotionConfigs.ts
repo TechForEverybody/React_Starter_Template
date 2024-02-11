@@ -1,0 +1,30 @@
+export const framerAnimation={
+    left2right:{
+        initial:{
+            left:"-1000px"
+        },
+        animate:{
+            left:"0"
+        },
+        exit:{
+            left:"0"
+        },
+        transition:{
+            duration:1
+        }
+    },
+    right2left:{
+        initial:{
+            left:"100vw"
+        },
+        animate:{
+            left:"0"
+        },
+        exit:{
+            left:"0"
+        },
+        transition:{
+            duration:1
+        }
+    },
+}
