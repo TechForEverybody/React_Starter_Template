@@ -31,3 +31,16 @@ i,
 img{
 	cursor: pointer;
 }
+*::-webkit-scrollbar {
+    width: 5px;
+}
+*::-webkit-scrollbar-track {
+    background: #f1f1f105;
+}
+*::-webkit-scrollbar-thumb {
+    background: #d2d2d2;
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: gray;
+}

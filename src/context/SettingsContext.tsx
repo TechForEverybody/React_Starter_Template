@@ -18,7 +18,7 @@ function getInitialScreenWidth() {
     if (!!window) {
         if (window.innerWidth > 1200) return "desktop"
         if (window.innerWidth > 768) return "tab"
-        if (window.innerWidth > 300) return "mobile"
+        if (window.innerWidth > 0) return "mobile"
     }
     return "desktop"
 }
@@ -40,7 +40,7 @@ function settingsReducer(state: SettingStateType, action: SettingActionType): Se
             return { ...state, screen: action.value as typeof state.screen }
         case "language":
             const currentSettings = getSettingsData() || defaultSettingsData
-            setSettingsData({ ...currentSettings, language: action.value as string})
+            setSettingsData({ ...currentSettings, language: action.value as string })
             return { ...state, language: action.value as string }
         case "themeScheme":
             setSettingsData({ ...currentSettingsData, themeScheme: action.value as typeof state.themeScheme })
@@ -82,22 +82,22 @@ export default function SettingContextProvider(props: {
     }
     function changeThemeScheme() {
         const currentSettingsData = getSettingsData() || defaultSettingsData
-        changeSettings({ type: "themeScheme", value: (settings.themeScheme + 1) % 4  as typeof settings.themeScheme})
+        changeSettings({ type: "themeScheme", value: (settings.themeScheme + 1) % 4 as typeof settings.themeScheme })
         setSettingsData({ ...currentSettingsData, themeScheme: (settings.themeScheme + 1) % 4 as typeof settings.themeScheme })
-    }   
+    }
     return (
-        <SettingContext.Provider value={{ settings, changeSettings,toggleTheme, changeThemeScheme }}>
+        <SettingContext.Provider value={{ settings, changeSettings, toggleTheme, changeThemeScheme }}>
             <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme={settings.themeMode==="dark"?"dark":"colored"}            
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme={settings.themeMode === "dark" ? "dark" : "colored"}
             />
             {props.children}
         </SettingContext.Provider>
@@ -117,3 +117,5 @@ export default function SettingContextProvider(props: {
 // changeSettings({ type: "language", value: "english" })
 // console.log(settings.themeMode) // dark
 // console.log(settings.screen) // desktop
+
+
